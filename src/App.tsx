@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.scss';
+import ArticleCard from './components/Article/ArticleCard/ArticleCard';
+import articles from './models/articles.json';
+import Stack from 'react-bootstrap/Stack';
+import Container from 'react-bootstrap/Container';
+import { Row, Col} from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+              <ArticleCard article={articles[0]} />
+              <ArticleCard article={articles[1]} />
+              <ArticleCard article={articles[2]} />
+              <ArticleCard article={articles[3]} />
+              <ArticleCard article={articles[4]} />
+     
     </div>
   );
 }
