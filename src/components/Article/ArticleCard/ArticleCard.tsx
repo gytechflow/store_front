@@ -10,7 +10,10 @@ export default function ArticleCard({article}: { article: Article }) {
          <Card style={{ width: '18rem'}}>
          <div className="product-img">
             <Badge bg="secondary">{article.price}<CurrencyDollar/></Badge>
-            <Card.Img  variant="top" src={`http://localhost:2020/assets/${article.product.image}`} />
+            <Card.Img  
+               variant="top" src={`${Config.imageAssetsUrl}${article.product.image}`} 
+               alt={article.product.name}
+            />
             <div className="product-action">
                <div className="product-action-style">
                   <a href="#">
