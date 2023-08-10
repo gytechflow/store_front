@@ -1,21 +1,17 @@
-import { Spinner } from "react-bootstrap";
 import ArticleCard from "../ArticleCard/ArticleCard";
-import useArticleList from "../api/ArticleList";
-import { ErrorComponent } from "../../Error/Error";
+import { Article } from "../Article";
+import "./ArticleList.module.scss";
 
-export default function ArticleList() {
-  const { isLoading, articles, error } = useArticleList();
-
+export default function ArticleList({
+  articles,
+}: {
+  articles: Array<Article>;
+}) {
   return (
     <div className="{styles.articleList}">
-      <ErrorComponent error={error} />
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        articles.map((article) => {
-          return <ArticleCard key={article.id} article={article} />;
-        })
-      )}
+      {articles.map((article) => {
+        return <ArticleCard key={article.id} article={article} />;
+      })}
       ;
     </div>
   );

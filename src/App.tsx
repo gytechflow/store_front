@@ -1,10 +1,11 @@
 import "./App.module.scss";
-import ArticleList from "./components/Article/ArticleList/ArticleList";
+import Router from "./Router";
+import NavigationBar from "./components/Shell/NavigationBar/NavigationBar";
 
 function App() {
   return (
     <div className="App">
-      <ArticleList />
+      <Router />
     </div>
   );
 }
