@@ -1,5 +1,5 @@
 /* The following line can be included in a src/App.scss */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // @import url(https://fonts.googleapis.com/css?family=Calibri:400,300,700);
 // body {
@@ -15,7 +15,7 @@
 .product-img {
   overflow: hidden;
   position: relative;
-  background-color:rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .product-action {
@@ -48,16 +48,16 @@
   opacity: 1;
 }
 
-.product-name { 
+.product-name {
   color: #cb2468;
   font-size: 20px;
   font-family: "Calibri", sans-serif;
-  padding-bottom: 10px; 
+  padding-bottom: 10px;
 }
 
-.product-seller { 
+.product-seller {
   color: #f1428883;
   font-size: 15px;
-  font-family: 'Signika', sans-serif;
+  font-family: "Signika", sans-serif;
   padding-bottom: 10px;
 }

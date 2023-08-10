@@ -1,7 +1,5 @@
-
-import './App.scss';
-import ArticleList from './components/Article/ArticleList/ArticleList';
-
+import "./App.scss";
+import ArticleList from "./components/Article/ArticleList/ArticleList";
 
 function App() {
   return (
