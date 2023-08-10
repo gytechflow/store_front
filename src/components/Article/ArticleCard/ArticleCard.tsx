@@ -1,4 +1,4 @@
-import { Article } from "../../../models/articles";
+import { Article } from "../Article";
 import {
   Cart4,
   CurrencyDollar,

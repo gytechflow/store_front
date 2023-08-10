@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./App.module.scss";
 import ArticleList from "./components/Article/ArticleList/ArticleList";
 
 function App() {

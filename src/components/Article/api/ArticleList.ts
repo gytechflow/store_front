@@ -1,6 +1,6 @@
 import { getArticles } from "./getArticles";
 import { useEffect, useState } from "react";
-import { Article } from "../../../models/articles";
+import { Article } from "../Article";
 import { AxiosError } from "axios";
 
 export default function useArticleList() {
