@@ -7,7 +7,7 @@ import './ArticleCard.module.scss';
 
 export default function ArticleCard({article}: { article: Article }) {
    return (
-         <Card style={{ width: '18rem'}}>
+      <Card style={{ width: '18rem'}}>
          <div className="product-img">
             <Badge bg="secondary">{article.price}<CurrencyDollar/></Badge>
             <Card.Img  
