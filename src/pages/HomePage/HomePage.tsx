@@ -8,9 +8,9 @@ function HomePage() {
   const { isLoading, articles, error } = useArticleList();
 
   return (
-    <div className="{styles.articleList}">
+    <div className="d-flex justify-content-center">
       <ErrorComponent error={error} />
-      {isLoading ? <Spinner /> : <ArticleList articles={articles} />};
+      {isLoading ? <Spinner /> : <ArticleList articles={articles} />}
     </div>
   );
 }

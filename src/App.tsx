@@ -1,7 +1,6 @@
 import "./App.module.scss";
 import Router from "./Router";
-import NavigationBar from "./components/Shell/NavigationBar/NavigationBar";
-
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 function App() {
   return (
     <div className="App">

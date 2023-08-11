@@ -4,6 +4,9 @@ import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );

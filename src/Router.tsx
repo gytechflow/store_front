@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFound from "./components/Error/NotFound";
 import NavigationBar from "./components/Shell/NavigationBar/NavigationBar";
+import "./Router.module.scss";
 
 export default function Router() {
   return (
