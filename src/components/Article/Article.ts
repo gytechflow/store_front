@@ -1,6 +1,6 @@
 export interface Article {
   id: number;
-  price: string;
+  price: { amount: number; currency: string };
   seller: { id: number; name: string };
   product: {
     "@type": string;
@@ -10,6 +10,6 @@ export interface Article {
     brand: string | null;
     description: string;
     image: string;
-    basePrice: string;
+    basePrice: { amount: number; currency: string };
   };
 }

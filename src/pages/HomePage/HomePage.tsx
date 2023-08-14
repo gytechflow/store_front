@@ -10,7 +10,8 @@ function HomePage() {
   return (
     <div className="d-flex justify-content-center">
       <ErrorComponent error={error} />
-      {isLoading ? <Spinner /> : <ArticleList articles={articles} />}
+      {!error &&
+        (isLoading ? <Spinner /> : <ArticleList articles={articles} />)}
     </div>
   );
 }
