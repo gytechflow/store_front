@@ -20,7 +20,7 @@ import {
 } from "mdb-react-ui-kit";
 
 import "./ArticleCard.module.scss";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ArticleCard({ article }: { article: Article }) {
@@ -30,6 +30,10 @@ export default function ArticleCard({ article }: { article: Article }) {
   async function onClick(event: any) {
     // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
     navigate(`articles/${article.id}`);
+  }
+
+  function defaultImage() {
+    return "";
   }
 
   return (
@@ -52,6 +56,10 @@ export default function ArticleCard({ article }: { article: Article }) {
               </Badge>
               <MDBCardImage
                 src={`http://localhost:2020/assets/${article.product.image}`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = "./logo512.png";
+                }}
                 className="card-img-top"
                 fluid
                 alt={article.product.name}

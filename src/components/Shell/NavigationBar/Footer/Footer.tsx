@@ -3,9 +3,9 @@ import { Heart } from "react-bootstrap-icons";
 
 export default function Footer() {
   return (
-    <div className={styles.navigationBar}>
+    <div className={styles.navigationBar} style={{ justifyContent: "center" }}>
       <span>
-        Made with <Heart /> By @YD{" "}
+        Made with <Heart /> By @YD
       </span>
     </div>
   );
