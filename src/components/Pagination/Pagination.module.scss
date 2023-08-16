@@ -1,14 +1,9 @@
 .pagination {
-    display: flex;
-    justify-content: center;
-    --mdb-pagination-hover-bg: #fc85b527 !important;
-    --mdb-pagination-active-color: #cb2468 !important;
-    --mdb-pagination-active-bg: #fc85b559 !important;
-    --mdb-pagination-active-border-color: #fc85b5fb !important;
-    --mdb-pagination-focus-color: #cb2468 !important;
-    --mdb-pagination-focus-bg: #fc85b559 !important;
+  display: flex;
+  justify-content: center;
+  --mdb-pagination-hover-bg: #fc85b527 !important;
+  --mdb-pagination-active-color: #cb2468 !important;
+  --mdb-pagination-active-bg: #fc85b559 !important;
+  --mdb-pagination-active-border-color: #fc85b5fb !important;
+  --mdb-pagination-focus-bg: #eeee !important;
 }
-
-
-
-

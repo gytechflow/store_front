@@ -17,21 +17,16 @@ const ELEMENT_PER_PAGE = 20;
 
 // src/components/Article/api/searchArticle.ts
 function searchArticles(criteria?: Criteria) {
-  if (criteria?.sort != undefined) {
-    return axios
-      .get<PageableResponse<Article>>(
-        encodeURI(
-          `http://localhost:8080/api/articles?page=${criteria?.page}&size=${criteria?.size}&sort=${criteria?.sort}`,
-        ),
-      )
-      .then((response) => response.data);
+  let baseURI = `http://localhost:8080/api/articles?page=${criteria?.page}&size=${criteria?.size}`;
+  if (criteria?.search !== "") {
+    baseURI += `&search=${criteria?.search}`;
   }
+  if (criteria?.sort !== undefined) {
+    baseURI += `&sort=${criteria?.sort}`;
+  }
+  console.log(baseURI);
   return axios
-    .get<PageableResponse<Article>>(
-      encodeURI(
-        `http://localhost:8080/api/articles?page=${criteria?.page}&size=${criteria?.size}`,
-      ),
-    )
+    .get<PageableResponse<Article>>(encodeURI(baseURI))
     .then((response) => response.data);
 }
 
@@ -63,10 +58,12 @@ function useSearchArticle(criteria: Criteria) {
 
 export function useArticlePagination() {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { isLoading, error, searchResult, totalPages } = useSearchArticle({
     page: currentPageNumber - 1,
     size: ELEMENT_PER_PAGE,
+    search: searchTerm,
   });
 
   function previousPage() {
@@ -85,6 +82,10 @@ export function useArticlePagination() {
     }
   }
 
+  function searchResultPage(searchTerm: string) {
+    setSearchTerm(searchTerm);
+  }
+
   function _isPageExist(pageNumber: number) {
     return pageNumber >= 1 && pageNumber <= totalPages;
   }
@@ -99,5 +100,6 @@ export function useArticlePagination() {
     goToPage,
     nextPage,
     previousPage,
+    searchResultPage,
   };
 }

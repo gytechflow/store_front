@@ -6,10 +6,12 @@ import "./HomePage.module.scss";
 import { useArticlePagination } from "../../components/Article/api/searchArticle";
 import Pagination from "../../components/Pagination/Pagination";
 import {
+  MDBInput,
   MDBPagination,
   MDBPaginationItem,
   MDBPaginationLink,
 } from "mdb-react-ui-kit";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function HomePage() {
   // const { isLoading, articles, error } = useArticleList();
@@ -23,10 +25,12 @@ function HomePage() {
     goToPage,
     previousPage,
     nextPage,
+    searchResultPage,
   } = useArticlePagination();
 
   return (
     <div className="row d-flex justify-content-center">
+      <SearchBar searchResultPage={searchResultPage} />
       <ErrorComponent error={error} />
       {!error &&
         (isLoading ? (
