@@ -9,8 +9,8 @@ export default function ArticleList({
   articles: Array<Article>;
 }) {
   return (
-    <MDBContainer className="m-3">
-      <MDBRow className="bg-light m-3">
+    <MDBContainer className="m-3 d-flex justify-content-center" lg="9">
+      <MDBRow className="bg-light m-3 p-5 w-75">
         {articles.map((article) => {
           return <ArticleCard key={article.id} article={article} />;
         })}

@@ -10,13 +10,13 @@ export default function ArticleDetail({ article }: { article: Article }) {
     // <section className="w-100" style={{backgroundColor: "#eee"}}>
     // <div className="container py-5 md-10">
     <div
-      className="h-100 row justify-content-center py-5 mb-3"
-      style={{ backgroundColor: "#eee" }}
+      className="vh-100 row justify-content-center"
+      style={{ backgroundColor: "#eee", minWidth: "100%", minHeight: "100%" }}
     >
-      <div className="col-md-10 col-xl-9 p-5">
+      <div className="col-md-9 col-xl-8 p-5">
         <div className="card shadow-0 border rounded-3">
           <div className="card-body">
-            <div className="row md-10">
+            <div className="row">
               <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                 <div className="bg-image hover-zoom ripple rounded ripple-surface">
                   <img
@@ -76,7 +76,11 @@ export default function ArticleDetail({ article }: { article: Article }) {
                   </button>
                   <button
                     className="btn btn-outline-primary btn-sm mt-2"
-                    style={{ borderColor: "#cb2468", color: "#cb2468" }}
+                    style={{
+                      borderColor: "#cb2468",
+                      color: "#cb2468",
+                      backgroundColor: "white",
+                    }}
                     type="button"
                   >
                     Add to wishlist

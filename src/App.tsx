@@ -6,7 +6,11 @@ import NavigationBar from "./components/Shell/NavigationBar/NavigationBar";
 import React, { Context } from "react";
 import useCustomer from "./components/Customer/api/getCustomer";
 import { Customer } from "./components/Customer/Customer";
+import { createStore } from "redux";
+// import store from "./stores/store.ts";
+import { setupStore } from "./stores/redux";
 
+const store = setupStore();
 export const CustomerContext = React.createContext<Customer | undefined>(
   undefined,
 );
@@ -15,17 +19,19 @@ function App() {
   const { customer } = useCustomer(10);
 
   return (
-    <CustomerContext.Provider value={customer}>
-      <div className="App d-flex align-items-start flex-column bd-highlight">
+    <div className="App d-flex align-items-start  vh-100 flex-wrap">
+      <CustomerContext.Provider value={customer}>
         <div className="" style={{ minWidth: "100%" }}>
           <NavigationBar />
         </div>
-        <Outlet />
+        <div style={{ minWidth: "100%" }}>
+          <Outlet />
+        </div>
         <div id="footer" className="mt-auto w-100">
           <Footer />
         </div>
-      </div>
-    </CustomerContext.Provider>
+      </CustomerContext.Provider>
+    </div>
   );
 }
 

@@ -34,12 +34,13 @@ export default function ArticleCard({ article }: { article: Article }) {
   }
 
   return (
-    <MDBCol md="4" lg="3" className=" mb-3">
+    <MDBCol md="4" lg="3" className="mb-4">
       <div onClick={(e) => onClick(e)} className="position-relative">
         <MDBCard
           style={{ backgroundColor: "rgba(0, 0, 0, 0.06)", overflow: "hidden" }}
           onMouseMove={() => setDisplayCardAction(true)}
           onMouseLeave={() => setDisplayCardAction(false)}
+          className=""
         >
           <MDBRipple
             rippleColor="light"
