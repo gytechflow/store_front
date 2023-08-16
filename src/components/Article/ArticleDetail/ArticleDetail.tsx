@@ -20,7 +20,7 @@ export default function ArticleDetail({ article }: { article: Article }) {
               <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                 <div className="bg-image hover-zoom ripple rounded ripple-surface">
                   <img
-                    src={`http://localhost:2020/assets/${article?.product.image}`}
+                    src={`${Config.imageAssetsUrl}${article?.product.image}`}
                     className="w-100"
                   />
                   <a href="#!">

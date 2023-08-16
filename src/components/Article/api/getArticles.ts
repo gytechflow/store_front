@@ -11,6 +11,6 @@ interface PageableResponse<T> {
 export async function getArticles() {
   axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
   return axios.get<PageableResponse<Article>>(
-    `http://localhost:8080/api/articles`,
+    `${Config.apiBaseUrl}/api/articles`,
   );
 }

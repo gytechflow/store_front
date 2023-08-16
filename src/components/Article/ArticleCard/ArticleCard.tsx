@@ -28,17 +28,14 @@ export default function ArticleCard({ article }: { article: Article }) {
   let navigate = useNavigate();
 
   async function onClick(event: any) {
-    // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
+    console.log(event.path);
     navigate(`articles/${article.id}`);
-  }
-
-  function defaultImage() {
-    return "";
+    // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
   }
 
   return (
     <MDBCol md="4" lg="3" className=" mb-3">
-      <div onClick={onClick} className="position-relative">
+      <div onClick={(e) => onClick(e)} className="position-relative">
         <MDBCard
           style={{ backgroundColor: "rgba(0, 0, 0, 0.06)", overflow: "hidden" }}
           onMouseMove={() => setDisplayCardAction(true)}
@@ -55,7 +52,7 @@ export default function ArticleCard({ article }: { article: Article }) {
                 <CurrencyDollar />
               </Badge>
               <MDBCardImage
-                src={`http://localhost:2020/assets/${article.product.image}`}
+                src={`${Config.imageAssetsUrl}${article.product.image}`}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null; // prevents looping
                   currentTarget.src = "./logo512.png";

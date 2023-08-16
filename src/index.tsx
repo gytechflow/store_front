@@ -19,7 +19,7 @@ function Router() {
           <Route path="/" element={<App />}>
             {/*L'attribut index permet d'indiquer la route qui sera présente par défaut pour la route parente -->*/}
             <Route index element={<HomePage />} />
-            <Route path="articles" element={<HomePage />} />
+            <Route path="" element={<HomePage />} />
 
             {/*Cette route sera afficher à la place de la précédente si le path match l'url actuel*/}
             <Route path="/articles/:articleId" element={<ArticlePage />} />

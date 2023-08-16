@@ -17,7 +17,7 @@ const ELEMENT_PER_PAGE = 20;
 
 // src/components/Article/api/searchArticle.ts
 function searchArticles(criteria?: Criteria) {
-  let baseURI = `http://localhost:8080/api/articles?page=${criteria?.page}&size=${criteria?.size}`;
+  let baseURI = `${Config.apiBaseUrl}/api/articles?page=${criteria?.page}&size=${criteria?.size}`;
   if (criteria?.search !== "") {
     baseURI += `&search=${criteria?.search}`;
   }

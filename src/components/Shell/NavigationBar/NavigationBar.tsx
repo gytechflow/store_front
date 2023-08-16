@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import styles from "./NavigationBar.module.scss";
 import { NavLink } from "react-router-dom";
 import { Cart3, Grid3x3Gap, People, Person } from "react-bootstrap-icons";
+import { CustomerContext } from "../../../App";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
   backgroundColor: isActive ? "#e2E2E210" : "",
@@ -17,7 +18,7 @@ export default function NavigationBar() {
         <NavLink to="/" style={linkStyle}>
           <img alt="" src={"/takima_logo.png"} width="35" />
         </NavLink>
-        <NavLink to="/articles" style={linkStyle}>
+        <NavLink to="/" style={linkStyle}>
           <div className={styles.linkElement}>
             <Grid3x3Gap className="mr-2" />
             <span>Articles</span>
@@ -41,7 +42,11 @@ export default function NavigationBar() {
         <NavLink to="/profile" style={linkStyle}>
           <div>
             <Person></Person>
-            <div>Profile</div>
+            <CustomerContext.Consumer>
+              {(customer) => {
+                return <div className="pl-1">{customer?.firstname}</div>;
+              }}
+            </CustomerContext.Consumer>
           </div>
         </NavLink>
       </div>
