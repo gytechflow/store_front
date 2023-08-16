@@ -1,18 +1,19 @@
-// @import "~bootstrap/scss/bootstrap";
-// @import "./Router.module.scss";
+html {
+    height: 100%;
+    width: 100%;
+}
 
-// .App {
-//   display: flex;
-//   background-color: #faf8f8;
-//   flex-direction: row;
-// }
+body {
+    margin:0;
+    padding:0;
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+ }
 
-// .articleCard {
-//   display: flex;
-//   flex-direction: row;
-// }
-
-// $enable-grid-classes: false;
-// $enable-cssgrid: true;
-
-// @import "bootstrap/scss/bootstrap";
+#footer {
+    position:absolute;
+    bottom:0;
+    height:60px;
+ }
+ 

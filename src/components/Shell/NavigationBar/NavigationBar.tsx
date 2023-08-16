@@ -13,7 +13,7 @@ const linkStyle = ({ isActive }: { isActive: boolean }) => ({
 
 export default function NavigationBar() {
   return (
-    <div className={styles.navigationBar}>
+    <div className={styles.navigationBar} style={{ minWidth: "100%" }}>
       <div>
         <NavLink to="/" style={linkStyle}>
           <img alt="" src={"/takima_logo.png"} width="35" />
@@ -33,10 +33,10 @@ export default function NavigationBar() {
       </div>
 
       <div>
-        <NavLink to="/card" style={linkStyle}>
+        <NavLink to="/cart" style={linkStyle}>
           <div>
             <Cart3 />
-            <div className="pl-6">Card</div>
+            <div className="pl-6">Cart</div>
           </div>
         </NavLink>
         <NavLink to="/profile" style={linkStyle}>

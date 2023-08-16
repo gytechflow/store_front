@@ -38,7 +38,7 @@ function HomePage() {
         ) : (
           <ArticleList articles={currentPageContent} />
         ))}
-      <nav aria-label="..." className="">
+      <nav aria-label="..." className="mb-5 p-3">
         <MDBPagination circle>
           <MDBPaginationItem onClick={() => previousPage()}>
             <MDBPaginationLink href="#" tabIndex={-1} aria-disabled="true">

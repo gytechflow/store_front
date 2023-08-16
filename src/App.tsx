@@ -16,10 +16,14 @@ function App() {
 
   return (
     <CustomerContext.Provider value={customer}>
-      <div className="App">
-        <NavigationBar />
+      <div className="App d-flex align-items-start flex-column bd-highlight">
+        <div className="" style={{ minWidth: "100%" }}>
+          <NavigationBar />
+        </div>
         <Outlet />
-        <Footer />
+        <div id="footer" className="mt-auto w-100">
+          <Footer />
+        </div>
       </div>
     </CustomerContext.Provider>
   );

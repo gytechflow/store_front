@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ArticlePage from "./pages/ArticlePage/ArticlePage";
 import NotFound from "./components/Error/NotFound";
+import CartPage from "./pages/CartPage/CartPage";
 
 function Router() {
   return (
@@ -24,7 +25,7 @@ function Router() {
             {/*Cette route sera afficher à la place de la précédente si le path match l'url actuel*/}
             <Route path="/articles/:articleId" element={<ArticlePage />} />
             {/* }<Route path="sellers" element={<SellerHomePage />} /> */}
-            {/* <Route path="cart" element={<CartPage />} /> */}
+            <Route path="cart" element={<CartPage />} />
             {/* }<Route path="profile" element={<ProfilePage />} /> */}
             <Route path="*" element={<NotFound />} />
           </Route>

@@ -1,9 +1,11 @@
-import styles from "../NavigationBar.module.scss";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 
-export default function Footer() {
+export default function CartPage() {
   return (
-    <div className={styles.navigationBar} style={{ justifyContent: "center" }}>
+    <div
+      className="{styles.navigationBar}"
+      style={{ justifyContent: "center" }}
+    >
       <span>
         Made with <HeartFill color="red" /> By Takima @YD
       </span>
