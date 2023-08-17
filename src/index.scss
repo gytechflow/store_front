@@ -2,7 +2,9 @@
 @import "./components/Pagination/Pagination.module.scss";
 @import "./pages/HomePage/HomePage.module.scss";
 @import "./pages/CartPage/CartPage.module.scss";
+@import "./pages/SellersPage/AddSellerPage.module.scss";
 @import "./components/Article/ArticleCard/ArticleCard.module.scss";
+@import "bootstrap/scss/bootstrap";
 
 #root {
   min-height: 100%;
