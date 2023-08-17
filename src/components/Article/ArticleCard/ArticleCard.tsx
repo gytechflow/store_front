@@ -1,8 +1,10 @@
 import { Article } from "../Article";
 import {
   Cart4,
+  CartFill,
   CurrencyDollar,
   Heart,
+  HeartFill,
   PlusSquare,
 } from "react-bootstrap-icons";
 import { Badge, Card } from "react-bootstrap";
@@ -22,20 +24,26 @@ import {
 import "./ArticleCard.module.scss";
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../stores/slices/CartSlice";
 
 export default function ArticleCard({ article }: { article: Article }) {
   let [diplayCardAction, setDisplayCardAction] = useState(false);
-  let navigate = useNavigate();
+  let [cartIconBackgroundColor, setCartIconBackgroundColor] = useState("black");
+  let [favoriteIconBackgroundColor, setFavoriteIconBackgroundColor] =
+    useState("black");
 
-  async function onClick(event: any) {
-    console.log(event.path);
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  async function goToArticleDetail(event: any) {
     navigate(`articles/${article.id}`);
     // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
   }
 
   return (
     <MDBCol md="4" lg="3" className="mb-4">
-      <div onClick={(e) => onClick(e)} className="position-relative">
+      <div className="position-relative">
         <MDBCard
           style={{ backgroundColor: "rgba(0, 0, 0, 0.06)", overflow: "hidden" }}
           onMouseMove={() => setDisplayCardAction(true)}
@@ -47,7 +55,7 @@ export default function ArticleCard({ article }: { article: Article }) {
             rippleTag="div"
             className="bg-image hover-overlay"
           >
-            <div className="cardtop">
+            <div className="cardtop" onClick={(e) => goToArticleDetail(e)}>
               <Badge bg="secondary">
                 {article.price.amount}
                 <CurrencyDollar />
@@ -80,19 +88,40 @@ export default function ArticleCard({ article }: { article: Article }) {
                 <MDBCard className="bg-light mb-3 mx-3">
                   <MDBContainer>
                     <MDBRow>
-                      <MDBCol className="pl-1 d-flex justify-content-center">
+                      {/* <MDBCol className="pl-1 d-flex justify-content-center">
                         <a className="p-0" href="#">
-                          <PlusSquare color="pink" size={16} />
+                          <PlusSquare color="#cb2468" size={16} />
+                        </a>
+                      </MDBCol> */}
+                      <MDBCol className="pl-1 d-flex justify-content-center">
+                        <a href="#">
+                          <HeartFill
+                            color={favoriteIconBackgroundColor}
+                            size={16}
+                            onMouseOver={() =>
+                              setFavoriteIconBackgroundColor("#cb2468")
+                            }
+                            onMouseLeave={() =>
+                              setFavoriteIconBackgroundColor("black")
+                            }
+                          />
                         </a>
                       </MDBCol>
                       <MDBCol className="pl-1 d-flex justify-content-center">
-                        <a href="#">
-                          <Heart color="pink" size={16} />
-                        </a>
-                      </MDBCol>
-                      <MDBCol className="pl-1 d-flex justify-content-center">
-                        <a href="#">
-                          <Cart4 color="pink" size={16} />
+                        <a
+                          href="#"
+                          onClick={() => dispatch(addToCart(article))}
+                        >
+                          <CartFill
+                            color={cartIconBackgroundColor}
+                            size={16}
+                            onMouseOver={() =>
+                              setCartIconBackgroundColor("#cb2468")
+                            }
+                            onMouseLeave={() =>
+                              setCartIconBackgroundColor("black")
+                            }
+                          />
                         </a>
                       </MDBCol>
                     </MDBRow>

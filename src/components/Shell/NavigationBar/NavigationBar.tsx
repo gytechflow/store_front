@@ -2,7 +2,13 @@ import React, { useContext } from "react";
 
 import styles from "./NavigationBar.module.scss";
 import { NavLink } from "react-router-dom";
-import { Cart3, Grid3x3Gap, People, Person } from "react-bootstrap-icons";
+import {
+  CartFill,
+  Grid3x3GapFill,
+  PeopleFill,
+  Person,
+  PersonFill,
+} from "react-bootstrap-icons";
 import { CustomerContext } from "../../../App";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
@@ -16,17 +22,17 @@ export default function NavigationBar() {
     <div className={styles.navigationBar} style={{ minWidth: "100%" }}>
       <div>
         <NavLink to="/" style={linkStyle}>
-          <img alt="" src={"/takima_logo.png"} width="35" />
+          <img alt="" src="./takima_logo.png" width="35" />
         </NavLink>
         <NavLink to="/" style={linkStyle}>
           <div className={styles.linkElement}>
-            <Grid3x3Gap className="mr-2" />
+            <Grid3x3GapFill className="mr-2" />
             <span>Articles</span>
           </div>
         </NavLink>
         <NavLink to="/sellers" style={linkStyle}>
           <div className={styles.linkElement}>
-            <People className="mr-2" />
+            <PeopleFill className="mr-2" />
             <span>Sellers</span>
           </div>
         </NavLink>
@@ -34,17 +40,16 @@ export default function NavigationBar() {
 
       <div>
         <NavLink to="/cart" style={linkStyle}>
-          <div>
-            <Cart3 />
-            <div className="pl-6">Cart</div>
+          <div className={styles.linkElement}>
+            <CartFill />
           </div>
         </NavLink>
         <NavLink to="/profile" style={linkStyle}>
-          <div>
-            <Person></Person>
+          <div className={styles.linkElement}>
+            <PersonFill className="mr-3" />
             <CustomerContext.Consumer>
               {(customer) => {
-                return <div className="pl-1">{customer?.firstname}</div>;
+                return <span className="pl-1">{customer?.firstname}</span>;
               }}
             </CustomerContext.Consumer>
           </div>

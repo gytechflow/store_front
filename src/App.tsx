@@ -9,6 +9,7 @@ import { Customer } from "./components/Customer/Customer";
 import { createStore } from "redux";
 // import store from "./stores/store.ts";
 import { setupStore } from "./stores/redux";
+import { Provider } from "react-redux";
 
 const store = setupStore();
 export const CustomerContext = React.createContext<Customer | undefined>(
@@ -20,17 +21,19 @@ function App() {
 
   return (
     <div className="App d-flex align-items-start  vh-100 flex-wrap">
-      <CustomerContext.Provider value={customer}>
-        <div className="" style={{ minWidth: "100%" }}>
-          <NavigationBar />
-        </div>
-        <div style={{ minWidth: "100%" }}>
-          <Outlet />
-        </div>
-        <div id="footer" className="mt-auto w-100">
-          <Footer />
-        </div>
-      </CustomerContext.Provider>
+      <Provider store={store}>
+        <CustomerContext.Provider value={customer}>
+          <div className="" style={{ minWidth: "100%" }}>
+            <NavigationBar />
+          </div>
+          <div style={{ minWidth: "100%" }}>
+            <Outlet />
+          </div>
+          <div id="footer" className="mt-auto w-100">
+            <Footer />
+          </div>
+        </CustomerContext.Provider>
+      </Provider>
     </div>
   );
 }

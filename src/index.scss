@@ -1,7 +1,9 @@
 @import "./App.module.scss";
 @import "./components/Pagination/Pagination.module.scss";
 @import "./pages/HomePage/HomePage.module.scss";
+@import "./pages/CartPage/CartPage.module.scss";
+@import "./components/Article/ArticleCard/ArticleCard.module.scss";
 
 #root {
-    min-height: 100%; 
+  min-height: 100%;
 }

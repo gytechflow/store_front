@@ -1,6 +1,5 @@
 import "./ArticleDetail.module.scss";
 
-import { MDBContainer } from "mdb-react-ui-kit";
 import { Article } from "../Article";
 
 export default function ArticleDetail({ article }: { article: Article }) {
