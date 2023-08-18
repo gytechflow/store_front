@@ -26,9 +26,7 @@ function App() {
             <div className="" style={{ minWidth: "100%" }}>
               <NavigationBar />
             </div>
-            <div style={{ minWidth: "100%" }}>
-              <Outlet />
-            </div>
+            <Outlet />
             <div id="footer" className="mt-auto w-100">
               <Footer />
             </div>

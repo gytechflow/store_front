@@ -8,6 +8,8 @@ import {
 } from "react-bootstrap-icons";
 import { CustomerContext } from "../../../App";
 import logo from "./takima_logo.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../stores/redux";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
   backgroundColor: isActive ? "#e2E2E210" : "",
@@ -16,6 +18,15 @@ const linkStyle = ({ isActive }: { isActive: boolean }) => ({
 });
 
 export default function NavigationBar() {
+  const items = useSelector((state: RootState) => state.cart.items);
+
+  const getTotalQuantity = () => {
+    let total = 0;
+    items.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
   return (
     <div className={styles.navigationBar} style={{ minWidth: "100%" }}>
       <div>
@@ -40,6 +51,10 @@ export default function NavigationBar() {
         <NavLink to="/cart" style={linkStyle}>
           <div className={styles.linkElement}>
             <CartFill />
+            <span className="position-relative translate-middle badge rounded-pill bg-danger">
+              {getTotalQuantity()}
+              <span className="visually-hidden">unread messages</span>
+            </span>
           </div>
         </NavLink>
         <NavLink to="/profile" style={linkStyle}>

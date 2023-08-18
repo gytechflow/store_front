@@ -1,22 +1,22 @@
 import "./ArticleDetail.module.scss";
 
 import { Article } from "../Article";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../stores/slices/CartSlice";
 
 export default function ArticleDetail({ article }: { article: Article }) {
+  const dispatch = useDispatch();
+
   return (
-    // <MDBContainer className="m-3 w-100 justify-content-center">
-    // <div className="{styles.articlePage}">
-    // <section className="w-100" style={{backgroundColor: "#eee"}}>
-    // <div className="container py-5 md-10">
     <div
-      className="vh-100 row justify-content-center"
-      style={{ backgroundColor: "#eee", minWidth: "100%", minHeight: "100%" }}
+      className="row justify-content-center"
+      style={{ backgroundColor: "#eee", height: "100%", width: "100%" }}
     >
-      <div className="col-md-9 col-xl-8 p-5">
+      <div className="col-md-9 col-xl-8 p-5 h-50">
         <div className="card shadow-0 border rounded-3">
           <div className="card-body">
             <div className="row">
-              <div className="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+              <div className="col-md-12 col-lg-3 col-xl-3">
                 <div className="bg-image hover-zoom ripple rounded ripple-surface">
                   <img
                     src={`${Config.imageAssetsUrl}${article?.product.image}`}
@@ -54,6 +54,8 @@ export default function ArticleDetail({ article }: { article: Article }) {
                   <span>{article?.product.ref}</span>
                 </div>
                 <p className="text-wrap mt-5 pt-3 mb-4 mb-md-0">
+                  Description:
+                  <br />
                   {article?.product.description}
                 </p>
               </div>
@@ -70,6 +72,7 @@ export default function ArticleDetail({ article }: { article: Article }) {
                     className="btn btn-primary btn-sm mt-4"
                     style={{ backgroundColor: "#cb2468" }}
                     type="button"
+                    onClick={() => dispatch(addToCart(article))}
                   >
                     Add to Cart
                   </button>
@@ -91,10 +94,5 @@ export default function ArticleDetail({ article }: { article: Article }) {
         </div>
       </div>
     </div>
-    // </div>
-    // </section>
-    //     {/* {typeof {article} === "undefined" ? <ErrorComponent error={error} /> : {article} } */}
-    // // </div>
-    // // </MDBContainer>
   );
 }

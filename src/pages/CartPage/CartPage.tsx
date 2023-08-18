@@ -23,7 +23,10 @@ export default function CartPage() {
   };
 
   return (
-    <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
+    <section
+      className="h-100 w-100 h-custom"
+      style={{ backgroundColor: "#eee" }}
+    >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12">
