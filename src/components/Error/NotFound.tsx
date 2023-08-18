@@ -10,20 +10,22 @@ export default function NotFound() {
         >
           <h3 className="card-header display-1 text-muted text-center">404</h3>
 
-          <span className="card-subtitle mb-2 text-muted text-center">
+          <h4 className="card-subtitle mt-2 mb-2 text-muted text-center">
             Page Could Not Be Found
-          </span>
+          </h4>
 
           <div className="card-body mx-auto">
             <a
               type="button"
-              href="#"
+              href="/"
               className="btn btn-sm btn-info text-white"
             >
               {" "}
               Back To Home{" "}
             </a>
           </div>
+
+          <img width="100%" src="/sad_panda.png" alt="Sad Panda" />
         </div>
       </div>
     </div>
