@@ -1,7 +1,10 @@
-import { Heart, HeartFill } from "react-bootstrap-icons";
+import { PlusSquareFill } from "react-bootstrap-icons";
 import { Seller } from "./Seller";
+import { useNavigate } from "react-router-dom";
 
 export default function SellersList({ sellers }: { sellers: Array<Seller> }) {
+  let navigate = useNavigate();
+
   return (
     <table className="table table-hover pr-3">
       <thead style={{ backgroundColor: "pink" }}>
@@ -21,19 +24,17 @@ export default function SellersList({ sellers }: { sellers: Array<Seller> }) {
           <th scope="col" style={{ color: "#cb2468" }}>
             Country
           </th>
-          <button
-            type="button"
-            className="btn btn-danger"
-            style={{ width: "50px" }}
-          >
-            <i className="far fa-trash-alt"></i>
-          </button>
+          <th>
+            <a href="/addSeller" className="algin-content-center">
+              <PlusSquareFill size={25} color="black" />
+            </a>
+          </th>
         </tr>
       </thead>
       <tbody>
         {sellers.map((seller) => {
           return (
-            <tr>
+            <tr onClick={() => navigate("/updateSeller")}>
               <th scope="row">{seller.id}</th>
               <td>{seller.name}</td>
               <td>{seller.address.street}</td>

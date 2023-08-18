@@ -37,7 +37,7 @@ export default function ArticleCard({ article }: { article: Article }) {
   const dispatch = useDispatch();
 
   async function goToArticleDetail(event: any) {
-    navigate(`articles/${article.id}`);
+    navigate(`/articles/${article.id}`);
     // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
   }
 
@@ -79,8 +79,8 @@ export default function ArticleCard({ article }: { article: Article }) {
             </div>
             {
               <>
-                {" "}
-                {diplayCardAction} {console.log({ diplayCardAction })}
+                {/* {" "}
+                {diplayCardAction} {console.log({ diplayCardAction })} */}
               </>
             }
             {diplayCardAction ? (

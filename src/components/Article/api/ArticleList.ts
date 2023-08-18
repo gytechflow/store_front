@@ -1,6 +1,6 @@
 import { getArticles } from "./getArticles";
 import { useEffect, useState } from "react";
-import { Article } from "../Article";
+import { Article, convertArticleDto } from "../Article";
 import { AxiosError } from "axios";
 
 export default function useArticleList() {
@@ -12,7 +12,9 @@ export default function useArticleList() {
     setLoading(true);
     return getArticles()
       .then((response) => {
-        setArticles(response.data.content);
+        setArticles(
+          response.data.content.map((data) => convertArticleDto(data)),
+        );
       })
       .catch((e: Error | AxiosError) => {
         // Nous sommes sûr ici que l'erreur sera logée

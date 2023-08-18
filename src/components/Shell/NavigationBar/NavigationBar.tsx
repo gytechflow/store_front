@@ -6,10 +6,10 @@ import {
   CartFill,
   Grid3x3GapFill,
   PeopleFill,
-  Person,
   PersonFill,
 } from "react-bootstrap-icons";
 import { CustomerContext } from "../../../App";
+import logo from "./takima_logo.png";
 
 const linkStyle = ({ isActive }: { isActive: boolean }) => ({
   backgroundColor: isActive ? "#e2E2E210" : "",
@@ -22,9 +22,9 @@ export default function NavigationBar() {
     <div className={styles.navigationBar} style={{ minWidth: "100%" }}>
       <div>
         <NavLink to="/" style={linkStyle}>
-          <img alt="" src="./takima_logo.png" width="35" />
+          <img alt="logo" src={logo} width="35" />
         </NavLink>
-        <NavLink to="/" style={linkStyle}>
+        <NavLink to="/articles" style={linkStyle}>
           <div className={styles.linkElement}>
             <Grid3x3GapFill className="mr-2" />
             <span>Articles</span>

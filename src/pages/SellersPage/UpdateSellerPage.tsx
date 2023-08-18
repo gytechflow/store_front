@@ -17,15 +17,15 @@ interface sellerFom {
   };
 }
 
-export default function AddSellerPage() {
+export default function AddSellerPage({ seller }: { seller: Seller }) {
   const [data, setData] = useState<sellerFom>({
-    name: "",
-    iban: "",
+    name: seller.name,
+    iban: seller.iban,
     address: {
-      street: "",
-      city: "",
-      zipcode: "",
-      country: "",
+      street: seller.address.street,
+      city: seller.address.city,
+      zipcode: seller.address.zipcode,
+      country: seller.address.country,
     },
   });
 
@@ -58,11 +58,9 @@ export default function AddSellerPage() {
         country: data.address.country,
       },
     };
-    axios
-      .post(`${Config.apiBaseUrl}/api/sellers`, userData)
-      .then((response) => {
-        console.log(response.status, response.data.token);
-      });
+    axios.put(`${Config.apiBaseUrl}/api/sellers`, userData).then((response) => {
+      console.log(response.status, response.data.token);
+    });
     navigate("/sellers");
   };
 
@@ -183,7 +181,7 @@ export default function AddSellerPage() {
               style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
               onClick={handleSubmit}
             >
-              Add
+              Update
             </button>
           </div>
         </form>

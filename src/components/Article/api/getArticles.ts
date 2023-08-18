@@ -1,4 +1,4 @@
-import { Article } from "../Article";
+import { Article, ArticleDto } from "../Article";
 import axios, { AxiosResponse } from "axios";
 
 interface PageableResponse<T> {
@@ -9,8 +9,7 @@ interface PageableResponse<T> {
 }
 
 export async function getArticles() {
-  axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-  return axios.get<PageableResponse<Article>>(
+  return axios.get<PageableResponse<ArticleDto>>(
     `${Config.apiBaseUrl}/api/articles`,
   );
 }

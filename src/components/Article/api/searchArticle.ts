@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { Criteria } from "../../../models/Http";
-import { Article } from "../Article";
+import { Article, ArticleDto, convertArticleDto } from "../Article";
 import { useEffect, useState } from "react";
 
 interface PageableResponse<T> {
@@ -26,7 +26,7 @@ function searchArticles(criteria?: Criteria) {
   }
   console.log(baseURI);
   return axios
-    .get<PageableResponse<Article>>(encodeURI(baseURI))
+    .get<PageableResponse<ArticleDto>>(encodeURI(baseURI))
     .then((response) => response.data);
 }
 
@@ -41,7 +41,9 @@ function useSearchArticle(criteria: Criteria) {
     setLoading(true);
     searchArticles(criteria)
       .then((response) => {
-        setSearchResult(response.content);
+        setSearchResult(
+          response.content.map((data) => convertArticleDto(data)),
+        );
         setTotalPages(response.totalPages);
       })
       .catch((e: Error | AxiosError) => {
