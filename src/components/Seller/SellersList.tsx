@@ -3,7 +3,7 @@ import { Seller } from "./Seller";
 import { useNavigate } from "react-router-dom";
 
 export default function SellersList({ sellers }: { sellers: Array<Seller> }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <table className="table table-hover pr-3">
@@ -34,7 +34,7 @@ export default function SellersList({ sellers }: { sellers: Array<Seller> }) {
       <tbody>
         {sellers.map((seller) => {
           return (
-            <tr onClick={() => navigate("/updateSeller")}>
+            <tr key={seller.id} onClick={() => navigate("/updateSeller")}>
               <th scope="row">{seller.id}</th>
               <td>{seller.name}</td>
               <td>{seller.address.street}</td>

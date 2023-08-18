@@ -1,10 +1,8 @@
-import { Heart, HeartFill } from "react-bootstrap-icons";
 import "./AddSellerPage.module.scss";
 import sellerImg from "./img.avif";
-import { Seller } from "../../components/Seller/Seller";
 import { useState } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface sellerFom {
   name: string;
@@ -34,7 +32,7 @@ export default function AddSellerPage() {
     level1: boolean,
   ) => {
     const value = e.target.value;
-    let formData: sellerFom = { ...data };
+    const formData: sellerFom = { ...data };
     if (level1) {
       const field = e.target.name as keyof typeof formData.address;
       formData.address[field] = value;
@@ -45,8 +43,8 @@ export default function AddSellerPage() {
     });
   };
 
-  let navigate = useNavigate();
-  const handleSubmit = (e: any) => {
+  const navigate = useNavigate();
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const userData = {
       name: data.name,

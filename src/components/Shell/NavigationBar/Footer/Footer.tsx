@@ -1,5 +1,5 @@
 import styles from "../NavigationBar.module.scss";
-import { Heart, HeartFill } from "react-bootstrap-icons";
+import { HeartFill } from "react-bootstrap-icons";
 
 export default function Footer() {
   return (

@@ -1,14 +1,9 @@
 // ./stores/redux.ts
-import {
-  combineReducers,
-  configureStore,
-  PreloadedState,
-} from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
 
 import cart from "./slices/CartSlice";
 
-import { useDispatch } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import {
   persistStore,

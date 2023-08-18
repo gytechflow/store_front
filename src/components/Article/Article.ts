@@ -31,11 +31,11 @@ export interface ArticleDto {
 }
 
 export function convertArticleDto(data: ArticleDto) {
-  let price = {
+  const price = {
     amount: parseFloat(data.price.split(" ")[1]),
     currency: data.price.split(" ")[0],
   };
-  let basePrice = {
+  const basePrice = {
     amount: parseFloat(data.product.basePrice.price.split(" ")[0]),
     currency: data.product.basePrice.price.split(" ")[1],
   };
