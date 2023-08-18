@@ -1,8 +1,4 @@
-import {
-  MDBPagination,
-  MDBPaginationItem,
-  MDBPaginationLink,
-} from "mdb-react-ui-kit";
+import { MDBPaginationItem, MDBPaginationLink } from "mdb-react-ui-kit";
 
 export default function Pagination({
   totalPages,
@@ -20,7 +16,11 @@ export default function Pagination({
         .map((page) => {
           if (page === currentPage) {
             return (
-              <MDBPaginationItem active onClick={() => goToPage(page)}>
+              <MDBPaginationItem
+                key={currentPage}
+                active
+                onClick={() => goToPage(page)}
+              >
                 <MDBPaginationLink href="#">
                   {page} <span className="visually-hidden">(current)</span>
                 </MDBPaginationLink>
@@ -28,7 +28,7 @@ export default function Pagination({
             );
           }
           return (
-            <MDBPaginationItem onClick={() => goToPage(page)}>
+            <MDBPaginationItem key={currentPage} onClick={() => goToPage(page)}>
               <MDBPaginationLink href="#">{page}</MDBPaginationLink>
             </MDBPaginationItem>
           );

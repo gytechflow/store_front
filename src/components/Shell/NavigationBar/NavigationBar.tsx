@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-
 import styles from "./NavigationBar.module.scss";
 import { NavLink } from "react-router-dom";
 import {

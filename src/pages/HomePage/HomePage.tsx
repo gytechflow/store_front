@@ -1,12 +1,10 @@
 import { Spinner } from "react-bootstrap";
 import ArticleList from "../../components/Article/ArticleList/ArticleList";
 import { ErrorComponent } from "../../components/Error/Error";
-import useArticleList from "../../components/Article/api/ArticleList";
 import "./HomePage.module.scss";
 import { useArticlePagination } from "../../components/Article/api/searchArticle";
 import Pagination from "../../components/Pagination/Pagination";
 import {
-  MDBInput,
   MDBPagination,
   MDBPaginationItem,
   MDBPaginationLink,
@@ -14,14 +12,12 @@ import {
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 function HomePage() {
-  // const { isLoading, articles, error } = useArticleList();
   const {
     isLoading,
     error,
     currentPageContent,
     currentPageNumber,
     totalPages,
-    ELEMENT_PER_PAGE,
     goToPage,
     previousPage,
     nextPage,

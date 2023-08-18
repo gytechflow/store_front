@@ -1,6 +1,6 @@
 import ArticleCard from "../ArticleCard/ArticleCard";
 import { Article } from "../Article";
-import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import "./ArticleList.module.scss";
 
 export default function ArticleList({

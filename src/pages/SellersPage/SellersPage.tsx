@@ -1,4 +1,3 @@
-import { Heart, HeartFill } from "react-bootstrap-icons";
 import sellerImg from "./img.avif";
 import Pagination from "../../components/Pagination/Pagination";
 import { useSellerPagination } from "../../components/Seller/api/getSellers";
@@ -18,11 +17,9 @@ export default function SellersPage() {
     currentPageContent,
     currentPageNumber,
     totalPages,
-    ELEMENT_PER_PAGE,
     goToPage,
     previousPage,
     nextPage,
-    searchResultPage,
   } = useSellerPagination();
   return (
     <div

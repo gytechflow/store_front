@@ -1,6 +1,4 @@
-import { HeartFill } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
-import { CartItem } from "../../models/CartItem";
 import { RootState } from "../../stores/redux";
 import "./CartPage.module.scss";
 import CartPageItem from "../../components/CartPageItem/CartPageItem";
@@ -47,7 +45,7 @@ export default function CartPage() {
                       </div>
 
                       {items.map((item) => (
-                        <CartPageItem item={item} />
+                        <CartPageItem key={item.article.id} item={item} />
                       ))}
 
                       <hr className="my-4" />

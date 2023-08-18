@@ -1,20 +1,11 @@
 import { Article } from "../Article";
-import {
-  Cart4,
-  CartFill,
-  CurrencyDollar,
-  Heart,
-  HeartFill,
-  PlusSquare,
-} from "react-bootstrap-icons";
-import { Badge, Card } from "react-bootstrap";
+import { CartFill, CurrencyDollar, HeartFill } from "react-bootstrap-icons";
+import { Badge } from "react-bootstrap";
 import {
   MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
   MDBCardText,
+  MDBCardBody,
   MDBCardImage,
-  MDBBtn,
   MDBRipple,
   MDBCol,
   MDBContainer,
@@ -22,21 +13,22 @@ import {
 } from "mdb-react-ui-kit";
 
 import "./ArticleCard.module.scss";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../stores/slices/CartSlice";
 
 export default function ArticleCard({ article }: { article: Article }) {
-  let [diplayCardAction, setDisplayCardAction] = useState(false);
-  let [cartIconBackgroundColor, setCartIconBackgroundColor] = useState("black");
-  let [favoriteIconBackgroundColor, setFavoriteIconBackgroundColor] =
+  const [diplayCardAction, setDisplayCardAction] = useState(false);
+  const [cartIconBackgroundColor, setCartIconBackgroundColor] =
+    useState("black");
+  const [favoriteIconBackgroundColor, setFavoriteIconBackgroundColor] =
     useState("black");
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  async function goToArticleDetail(event: any) {
+  async function goToArticleDetail() {
     navigate(`/articles/${article.id}`);
     // Dans ce cas c'est ce composant qui possède la responsabilité de savoir sur quelle route rediriger l'utilisateur
   }
@@ -55,7 +47,7 @@ export default function ArticleCard({ article }: { article: Article }) {
             rippleTag="div"
             className="bg-image hover-overlay"
           >
-            <div className="cardtop" onClick={(e) => goToArticleDetail(e)}>
+            <div className="cardtop" onClick={() => goToArticleDetail()}>
               <Badge bg="secondary">
                 {article.price.amount}
                 <CurrencyDollar />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Customer } from "../Customer";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosError } from "axios";
 
 function getCustomer(id: number) {
   return axios.get<Customer>(`${Config.apiBaseUrl}/api/customers/${id}`);

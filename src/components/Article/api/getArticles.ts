@@ -1,5 +1,5 @@
-import { Article, ArticleDto } from "../Article";
-import axios, { AxiosResponse } from "axios";
+import { ArticleDto } from "../Article";
+import axios from "axios";
 
 interface PageableResponse<T> {
   totalPages: number;

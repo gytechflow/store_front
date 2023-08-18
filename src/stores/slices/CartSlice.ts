@@ -1,6 +1,5 @@
 //./stores/slices/CartSlice.ts
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Article } from "../../components/Article/Article";
+import { createSlice } from "@reduxjs/toolkit";
 import { CartItem } from "../../models/CartItem";
 
 const cartSlice = createSlice({
