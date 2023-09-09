@@ -13,6 +13,7 @@ import NotFound from "./components/Error/NotFound";
 import CartPage from "./pages/CartPage/CartPage";
 import AddSellerPage from "./pages/SellersPage/AddSellerPage";
 import SellerListPage from "./pages/SellersPage/SellersPage";
+import UpdateSellerPage from "./pages/SellersPage/UpdateSellerPage";
 
 function Router() {
   return (
@@ -26,7 +27,11 @@ function Router() {
 
             {/*Cette route sera afficher à la place de la précédente si le path match l'url actuel*/}
             <Route path="/articles/:articleId" element={<ArticlePage />} />
-            <Route path="AddSeller" element={<AddSellerPage />} />
+            <Route path="addSeller" element={<AddSellerPage />} />
+            <Route
+              path="/updateSeller/:sellerId"
+              element={<UpdateSellerPage />}
+            />
             <Route path="sellers" element={<SellerListPage />} />
             <Route path="cart" element={<CartPage />} />
             {/* }<Route path="profile" element={<ProfilePage />} /> */}

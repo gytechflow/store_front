@@ -1,12 +1,11 @@
-import { Heart, HeartFill } from "react-bootstrap-icons";
 import "./AddSellerPage.module.scss";
 import sellerImg from "./img.avif";
-import { Seller } from "../../components/Seller/Seller";
 import { useState } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import useSeller from "../../components/Seller/api/useSeller";
 
-interface sellerFom {
+interface sellerDto {
   name: string;
   iban: string;
   address: {
@@ -17,35 +16,36 @@ interface sellerFom {
   };
 }
 
-export default function AddSellerPage({ seller }: { seller: Seller }) {
-  const [data, setData] = useState<sellerFom>({
-    name: seller.name,
-    iban: seller.iban,
+export default function UpdateSellerPage() {
+  const { sellerId } = useParams();
+  const seller = useSeller(parseInt(sellerId as string));
+
+  const [data, setData] = useState<sellerDto>({
+    name: "",
+    iban: "",
     address: {
-      street: seller.address.street,
-      city: seller.address.city,
-      zipcode: seller.address.zipcode,
-      country: seller.address.country,
+      street: "",
+      city: "",
+      zipcode: "",
+      country: "",
     },
   });
 
+  // setData(seller as sellerDto);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     level1: boolean,
   ) => {
     const value = e.target.value;
-    let formData: sellerFom = { ...data };
+    const formData: sellerDto = { ...data };
     if (level1) {
       const field = e.target.name as keyof typeof formData.address;
       formData.address[field] = value;
     }
-    setData({
-      ...data,
-      [e.target.name]: value,
-    });
+    setData(formData);
   };
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const userData = {

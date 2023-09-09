@@ -33,8 +33,12 @@ export default function SellersList({ sellers }: { sellers: Array<Seller> }) {
       </thead>
       <tbody>
         {sellers.map((seller) => {
+          const sellerId = seller.id;
           return (
-            <tr key={seller.id} onClick={() => navigate("/updateSeller")}>
+            <tr
+              key={sellerId}
+              onClick={() => navigate(`/updateSeller/${sellerId}`)}
+            >
               <th scope="row">{seller.id}</th>
               <td>{seller.name}</td>
               <td>{seller.address.street}</td>
